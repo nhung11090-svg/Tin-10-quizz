@@ -1,0 +1,341 @@
+import { Question, TextbookTopic } from '../types/quiz.js';
+
+export const DEFAULT_TEXTBOOK_TOPICS: TextbookTopic[] = [
+  {
+    id: 'sgk-1',
+    curriculum: 'Kết nối tri thức',
+    chapter: 'Chủ đề 1: Máy tính và xã hội tri thức',
+    lessonNumber: 1,
+    lessonTitle: 'Thông tin và xử lý thông tin',
+    summary: 'Phân biệt thông tin và dữ liệu, các bước xử lý thông tin của máy tính, vai trò của thông tin trong chuyển đổi số.',
+    keyPoints: [
+      'Dữ liệu là hình thức thể hiện của thông tin (chữ viết, âm thanh, hình ảnh, con số).',
+      'Thông tin là ý nghĩa được rút ra từ dữ liệu sau quá trình xử lý.',
+      'Chu trình xử lý thông tin gồm: Thu nhận -> Lưu trữ -> Xử lý -> Truyền đạt/Xuất kết quả.'
+    ]
+  },
+  {
+    id: 'sgk-2',
+    curriculum: 'Kết nối tri thức',
+    chapter: 'Chủ đề 2: Mạng máy tính và Internet',
+    lessonNumber: 6,
+    lessonTitle: 'Mạng máy tính trong cuộc sống hiện đại',
+    summary: 'Khái niệm mạng máy tính, mạng LAN, WAN, Internet, các dịch vụ điện toán đám mây và kết nối IoT.',
+    keyPoints: [
+      'Mạng máy tính là tập hợp các máy tính được kết nối với nhau để chia sẻ tài nguyên và truyền dữ liệu.',
+      'Mạng LAN có phạm vi địa lý hẹp (phòng học, tòa nhà), WAN có phạm vi rộng (quốc gia, toàn cầu).',
+      'Điện toán đám mây (Cloud Computing) cung cấp tài nguyên máy tính theo yêu cầu qua Internet.'
+    ]
+  },
+  {
+    id: 'sgk-3',
+    curriculum: 'Kết nối tri thức',
+    chapter: 'Chủ đề 4: Đạo đức, pháp luật và văn hóa trong môi trường số',
+    lessonNumber: 8,
+    lessonTitle: 'Ứng xử trên môi trường số và bản quyền số',
+    summary: 'Quy tắc ứng xử văn minh trên mạng xã hội, phòng chống tin giả, tôn trọng bản quyền phần mềm và nội dung số.',
+    keyPoints: [
+      'Luật An ninh mạng nghiêm cấm hành vi phát tán thông tin sai sự thật, xúc phạm danh dự người khác.',
+      'Phần mềm nguồn mở cho phép người dùng tự do xem mã nguồn, sửa đổi và phân phối theo giấy phép phù hợp.',
+      'Không tự ý sử dụng tác phẩm có bản quyền khi chưa được phép của tác giả.'
+    ]
+  },
+  {
+    id: 'sgk-4',
+    curriculum: 'Kết nối tri thức',
+    chapter: 'Chủ đề 5: Lập trình cơ bản với Python',
+    lessonNumber: 16,
+    lessonTitle: 'Ngôn ngữ lập trình bậc cao và Python',
+    summary: 'Làm quen với môi trường lập trình Python, cú pháp cơ bản, biến và kiểu dữ liệu, các phép toán số học.',
+    keyPoints: [
+      'Python là ngôn ngữ lập trình bậc cao, thông dịch, cú pháp ngắn gọn và gần gũi với ngôn ngữ tự nhiên.',
+      'Quy tắc đặt tên biến: chỉ chứa chữ cái, chữ số và dấu gạch dưới (_); KHÔNG bắt đầu bằng chữ số; phân biệt chữ hoa và chữ thường.',
+      'Các kiểu dữ liệu cơ bản: int (số nguyên), float (số thực), str (xâu ký tự), bool (đúng/sai).'
+    ]
+  },
+  {
+    id: 'sgk-5',
+    curriculum: 'Kết nối tri thức',
+    chapter: 'Chủ đề 5: Lập trình cơ bản với Python',
+    lessonNumber: 19,
+    lessonTitle: 'Cấu trúc rẽ nhánh (if - elif - else)',
+    summary: 'Biểu thức logic, toán tử so sánh (==, !=, >, <, >=, <=) và toán tử logic (and, or, not), cú pháp câu lệnh rẽ nhánh.',
+    keyPoints: [
+      'Toán tử so sánh bằng trong Python là == (hai dấu bằng), toán tử gán là = (một dấu bằng).',
+      'Khối lệnh trong Python được xác định bằng thụt đầu dòng (indentation), thông thường là 4 dấu cách.',
+      'Cú pháp đầy đủ: if <điều_kiện>: ... elif <điều_kiện>: ... else: ...'
+    ]
+  },
+  {
+    id: 'sgk-6',
+    curriculum: 'Kết nối tri thức',
+    chapter: 'Chủ đề 5: Lập trình cơ bản với Python',
+    lessonNumber: 20,
+    lessonTitle: 'Cấu trúc lặp với lệnh for và range',
+    summary: 'Lệnh lặp for trong Python, hàm range(start, stop, step) duyệt các phần tử tuần tự.',
+    keyPoints: [
+      'Hàm range(n) sinh dãy số từ 0 đến n - 1 (không bao gồm n).',
+      'Hàm range(a, b) sinh dãy số từ a đến b - 1.',
+      'Hàm range(a, b, step) sinh dãy số từ a đến trước b với bước nhảy step.'
+    ]
+  },
+  {
+    id: 'sgk-7',
+    curriculum: 'Kết nối tri thức',
+    chapter: 'Chủ đề 5: Lập trình cơ bản với Python',
+    lessonNumber: 22,
+    lessonTitle: 'Kiểu dữ liệu danh sách (List)',
+    summary: 'Khởi tạo danh sách, truy cập phần tử qua chỉ số (index), các phương thức append(), insert(), remove(), len().',
+    keyPoints: [
+      'Danh sách trong Python được đặt trong cặp ngoặc vuông [].',
+      'Chỉ số phần tử đầu tiên luôn bắt đầu từ 0 (chỉ số dương) hoặc -1 cho phần tử cuối cùng (chỉ số âm).',
+      'Phương thức append(x) thêm phần tử x vào cuối danh sách; len(list) trả về số lượng phần tử.'
+    ]
+  }
+];
+
+export const DEFAULT_QUESTIONS: Question[] = [
+  {
+    id: 'q-101',
+    questionNumber: 1,
+    text: 'Phát biểu nào sau đây đúng về quy tắc đặt tên biến trong ngôn ngữ lập trình Python?',
+    options: {
+      A: 'Tên biến có thể bắt đầu bằng một chữ số.',
+      B: 'Tên biến chỉ được gồm các chữ cái, chữ số và dấu gạch dưới (_), không bắt đầu bằng chữ số.',
+      C: 'Tên biến không phân biệt chữ hoa và chữ thường.',
+      D: 'Tên biến có thể chứa khoảng trắng và các ký tự đặc biệt như @, #, $.'
+    },
+    correctAnswer: 'B',
+    topic: 'Lập trình Python',
+    lessonName: 'Bài 16: Ngôn ngữ lập trình bậc cao và Python',
+    difficulty: 'Nhận biết',
+    status: 'approved',
+    createdAt: '2026-03-01T08:00:00.000Z',
+    explanation: {
+      correctAnswer: 'B',
+      whyCorrect: 'Theo SGK Tin học 10, trong Python tên biến hợp lệ chỉ bao gồm các chữ cái (a-z, A-Z), chữ số (0-9) và dấu gạch dưới (_), và ký tự đầu tiên bắt buộc không được là chữ số.',
+      whyOthersWrong: {
+        A: 'Sai vì tên biến bắt đầu bằng số (ví dụ 1count) sẽ gây lỗi cú pháp SyntaxError.',
+        C: 'Sai vì Python là ngôn ngữ phân biệt chữ hoa và chữ thường (case-sensitive), ví dụ Diem và diem là hai biến hoàn toàn khác nhau.',
+        D: 'Sai vì tên biến tuyệt đối không được chứa khoảng cách (space) hay các ký tự đặc biệt như @, #, $, %.'
+      },
+      keyTakeaway: 'Tên biến trong Python: chỉ dùng chữ, số, gạch dưới; KHÔNG bắt đầu bằng số; có phân biệt chữ hoa / thường.',
+      exampleSnippet: 'ten_hoc_sinh = "Nguyen Van A"  # Hợp lệ\n# 2ban = "Lỗi"                 # Lỗi cú pháp',
+      textbookReference: 'SGK Tin học 10 - Bài 16: Ngôn ngữ lập trình bậc cao và Python (Trang 84)',
+      isVerifiedSGK: true
+    }
+  },
+  {
+    id: 'q-102',
+    questionNumber: 2,
+    text: 'Cho đoạn mã Python sau. Kết quả hiển thị trên màn hình là gì?',
+    codeSnippet: 'a = 15\nb = 4\nprint(a // b, a % b)',
+    options: {
+      A: '3.75 3',
+      B: '3 3',
+      C: '3 0',
+      D: '4 3'
+    },
+    correctAnswer: 'B',
+    topic: 'Lập trình Python',
+    lessonName: 'Bài 17: Biến và lệnh gán',
+    difficulty: 'Thông hiểu',
+    status: 'approved',
+    createdAt: '2026-03-01T08:05:00.000Z',
+    explanation: {
+      correctAnswer: 'B',
+      whyCorrect: 'Toán tử // là phép chia lấy phần nguyên, 15 // 4 = 3. Toán tử % là phép chia lấy phần dư, 15 % 4 = 3 (vì 15 = 4*3 + 3). Kết quả in ra là 3 3.',
+      whyOthersWrong: {
+        A: 'Sai vì phép chia số thực / mới cho ra 3.75, còn // chỉ lấy phần nguyên.',
+        C: 'Sai vì 15 chia cho 4 dư 3 chứ không phải dư 0.',
+        D: 'Sai vì phần nguyên của 15 chia cho 4 là 3, không phải 4.'
+      },
+      keyTakeaway: 'Trong Python: // là chia lấy phần nguyên, % là chia lấy phần dư, / là chia số thực.',
+      exampleSnippet: '15 // 4 -> 3\n15 % 4  -> 3\n15 / 4  -> 3.75',
+      textbookReference: 'SGK Tin học 10 - Bài 17: Các phép toán số học trong Python',
+      isVerifiedSGK: true
+    }
+  },
+  {
+    id: 'q-103',
+    questionNumber: 3,
+    text: 'Đoạn mã sau sẽ in ra màn hình các số nào?',
+    codeSnippet: 'for i in range(2, 8, 2):\n    print(i, end=" ")',
+    options: {
+      A: '2 4 6 8',
+      B: '2 3 4 5 6 7',
+      C: '2 4 6',
+      D: '4 6 8'
+    },
+    correctAnswer: 'C',
+    topic: 'Lập trình Python',
+    lessonName: 'Bài 20: Câu lệnh lặp for',
+    difficulty: 'Thông hiểu',
+    status: 'approved',
+    createdAt: '2026-03-01T08:10:00.000Z',
+    explanation: {
+      correctAnswer: 'C',
+      whyCorrect: 'Hàm range(start, stop, step) bắt đầu từ start=2, bước nhảy step=2, và kết thúc trước stop=8. Các giá trị i lần lượt nhận là 2, 4, 6. Khi tăng thêm 2 là 8 thì bằng giá trị stop nên vòng lặp dừng lại.',
+      whyOthersWrong: {
+        A: 'Sai vì range(2, 8, 2) không bao gồm giá trị chặn trên là 8.',
+        B: 'Sai vì bước nhảy là 2 chứ không phải bước nhảy mặc định là 1.',
+        D: 'Sai vì giá trị xuất phát (start) là 2, không phải 4.'
+      },
+      keyTakeaway: 'range(a, b, step) luôn duyệt từ a đến số lớn nhất nhỏ hơn b theo bước nhảy step (chặn trên b không bao giờ được lấy).',
+      exampleSnippet: 'for i in range(2, 8, 2):\n    print(i, end=" ")  # In ra: 2 4 6',
+      textbookReference: 'SGK Tin học 10 - Bài 20: Cấu trúc lặp for và hàm range()',
+      isVerifiedSGK: true
+    }
+  },
+  {
+    id: 'q-104',
+    questionNumber: 4,
+    text: 'Trong Python, biểu thức nào sau đây dùng để kiểm tra biến số nguyên x là một số chẵn và lớn hơn 0?',
+    options: {
+      A: 'x % 2 == 0 and x > 0',
+      B: 'x // 2 == 0 or x > 0',
+      C: 'x % 2 = 0 and x > 0',
+      D: 'x / 2 == 0 and x > 0'
+    },
+    correctAnswer: 'A',
+    topic: 'Lập trình Python',
+    lessonName: 'Bài 19: Cấu trúc rẽ nhánh',
+    difficulty: 'Vận dụng',
+    status: 'approved',
+    createdAt: '2026-03-01T08:15:00.000Z',
+    explanation: {
+      correctAnswer: 'A',
+      whyCorrect: 'Số chẵn là số chia hết cho 2, tức phần dư bằng 0: x % 2 == 0. Điều kiện lớn hơn 0 là x > 0. Cả hai điều kiện đồng thời xảy ra nên dùng toán tử logic and.',
+      whyOthersWrong: {
+        B: 'Sai vì x // 2 là chia nguyên, và dùng toán tử or chỉ cần 1 trong 2 điều kiện đúng là sai yêu cầu.',
+        C: 'Sai vì sử dụng một dấu bằng = (lệnh gán) thay vì hai dấu bằng == (so sánh bằng).',
+        D: 'Sai vì x / 2 là phép chia số thực, chỉ bằng 0 khi x = 0.'
+      },
+      keyTakeaway: 'Kiểm tra chẵn lẻ dùng phép chia dư % 2. So sánh bằng trong Python luôn dùng ==.',
+      exampleSnippet: 'x = 10\nif x % 2 == 0 and x > 0:\n    print("x là số chẵn dương")',
+      textbookReference: 'SGK Tin học 10 - Bài 19: Biểu thức logic và cấu trúc rẽ nhánh',
+      isVerifiedSGK: true
+    }
+  },
+  {
+    id: 'q-105',
+    questionNumber: 5,
+    text: 'Sự khác biệt cơ bản giữa "Dữ liệu" (Data) và "Thông tin" (Information) trong môn Tin học 10 là gì?',
+    options: {
+      A: 'Dữ liệu và thông tin là hai khái niệm hoàn toàn giống nhau, có thể thay thế cho nhau.',
+      B: 'Thông tin là hình thức thể hiện của dữ liệu trong các thiết bị lưu trữ.',
+      C: 'Dữ liệu là các con số thô chưa xử lý, còn thông tin là ý nghĩa được rút ra từ dữ liệu qua quá trình xử lý.',
+      D: 'Dữ liệu chỉ bao gồm văn bản chữ viết, còn thông tin chỉ bao gồm hình ảnh.'
+    },
+    correctAnswer: 'C',
+    topic: 'Máy tính và xã hội tri thức',
+    lessonName: 'Bài 1: Thông tin và xử lý thông tin',
+    difficulty: 'Nhận biết',
+    status: 'approved',
+    createdAt: '2026-03-01T08:20:00.000Z',
+    explanation: {
+      correctAnswer: 'C',
+      whyCorrect: 'Dữ liệu là hình thức thể hiện của thông tin (các ký hiệu, chữ viết, âm thanh, số liệu thô). Khi dữ liệu được xử lý và đem lại sự hiểu biết, ý nghĩa cho con người thì trở thành thông tin.',
+      whyOthersWrong: {
+        A: 'Sai vì dữ liệu và thông tin có ranh giới phân biệt rõ ràng trong khoa học máy tính.',
+        B: 'Sai vì ngược lại: dữ liệu mới là hình thức thể hiện, còn thông tin là nội dung ý nghĩa.',
+        D: 'Sai vì dữ liệu có thể là văn bản, âm thanh, hình ảnh, video số.'
+      },
+      keyTakeaway: 'Dữ liệu là đầu vào (dạng thô), thông tin là kết quả sau xử lý mang lại hiểu biết cho con người.',
+      exampleSnippet: 'Dữ liệu: "38.5" (con số thô)\nThông tin: "Nhiệt độ cơ thể bệnh nhân là 38.5 độ C -> Bệnh nhân đang bị sốt."',
+      textbookReference: 'SGK Tin học 10 - Bài 1: Thông tin và xử lý thông tin (Mục 1)',
+      isVerifiedSGK: true
+    }
+  },
+  {
+    id: 'q-106',
+    questionNumber: 6,
+    text: 'Hành vi nào sau đây là vi phạm Luật An ninh mạng và đạo đức ứng xử trên môi trường số?',
+    options: {
+      A: 'Sử dụng phần mềm mã nguồn mở có giấy phép GNU GPL.',
+      B: 'Chia sẻ các bài viết cảnh báo phòng chống thiên tai từ cổng thông tin Chính phủ.',
+      C: 'Đăng tải thông tin cá nhân, hình ảnh riêng tư của bạn học lên mạng xã hội để chế giễu mà không có sự đồng ý.',
+      D: 'Cài đặt phần mềm diệt virus có bản quyền trên máy tính cá nhân.'
+    },
+    correctAnswer: 'C',
+    topic: 'Đạo đức & Pháp luật số',
+    lessonName: 'Bài 8: Ứng xử trên môi trường số và bản quyền số',
+    difficulty: 'Nhận biết',
+    status: 'approved',
+    createdAt: '2026-03-01T08:25:00.000Z',
+    explanation: {
+      correctAnswer: 'C',
+      whyCorrect: 'Hành vi tự ý phát tán thông tin đời tư, xúc phạm danh dự, uy tín của người khác trên mạng vi phạm nghiêm trọng Điều 8 và Điều 16 Luật An ninh mạng 2018.',
+      whyOthersWrong: {
+        A: 'Sai vì dùng phần mềm nguồn mở tuân thủ giấy phép là hoàn toàn hợp pháp và được khuyến khích.',
+        B: 'Sai vì chia sẻ thông tin chính thống từ cơ quan nhà nước giúp ích cho cộng đồng.',
+        D: 'Sai vì dùng phần mềm có bản quyền là tôn trọng quyền tác giả.'
+      },
+      keyTakeaway: 'Tôn trọng thông tin cá nhân và không xúc phạm người khác trên mạng là nguyên tắc cơ bản trong văn hóa số.',
+      exampleSnippet: 'Điều 8 Luật An ninh mạng nghiêm cấm hành vi xúc phạm danh dự người khác trên không gian mạng.',
+      textbookReference: 'SGK Tin học 10 - Bài 8: Ứng xử trên môi trường số và bản quyền số',
+      isVerifiedSGK: true
+    }
+  },
+  {
+    id: 'q-107',
+    questionNumber: 7,
+    text: 'Cho danh sách trong Python: ds = ["Toan", "Tin", "Ly", "Hoa"]. Giá trị của biểu thức ds[1] và len(ds) lần lượt là gì?',
+    codeSnippet: 'ds = ["Toan", "Tin", "Ly", "Hoa"]\nprint(ds[1], len(ds))',
+    options: {
+      A: '"Toan" và 4',
+      B: '"Tin" và 4',
+      C: '"Tin" và 3',
+      D: '"Ly" và 4'
+    },
+    correctAnswer: 'B',
+    topic: 'Lập trình Python',
+    lessonName: 'Bài 22: Kiểu dữ liệu danh sách',
+    difficulty: 'Thông hiểu',
+    status: 'approved',
+    createdAt: '2026-03-01T08:30:00.000Z',
+    explanation: {
+      correctAnswer: 'B',
+      whyCorrect: 'Chỉ số (index) trong danh sách Python bắt đầu từ 0: ds[0] là "Toan", ds[1] là "Tin". Hàm len(ds) trả về số lượng phần tử thực tế trong danh sách là 4.',
+      whyOthersWrong: {
+        A: 'Sai vì ds[0] mới là "Toan", ds[1] là "Tin".',
+        C: 'Sai vì danh sách có 4 phần tử ("Toan", "Tin", "Ly", "Hoa"), hàm len() trả về 4.',
+        D: 'Sai vì ds[2] mới là "Ly".'
+      },
+      keyTakeaway: 'Chỉ số danh sách Python luôn đếm từ 0. len(list) trả về tổng số phần tử.',
+      exampleSnippet: 'ds = ["Toan", "Tin", "Ly", "Hoa"]\n# index:  0       1      2     3\nprint(ds[1])   # In ra: Tin\nprint(len(ds)) # In ra: 4',
+      textbookReference: 'SGK Tin học 10 - Bài 22: Kiểu dữ liệu danh sách (List)',
+      isVerifiedSGK: true
+    }
+  },
+  {
+    id: 'q-108',
+    questionNumber: 8,
+    text: 'Thiết bị nào sau đây có chức năng định tuyến gói tin giữa các mạng máy tính khác nhau?',
+    options: {
+      A: 'Router (Bộ định tuyến)',
+      B: 'Hub (Bộ chia tín hiệu)',
+      C: 'Switch thông thường (Bộ chuyển mạch)',
+      D: 'Card mạng (NIC)'
+    },
+    correctAnswer: 'A',
+    topic: 'Mạng máy tính & Internet',
+    lessonName: 'Bài 6: Mạng máy tính trong cuộc sống hiện đại',
+    difficulty: 'Nhận biết',
+    status: 'approved',
+    createdAt: '2026-03-01T08:35:00.000Z',
+    explanation: {
+      correctAnswer: 'A',
+      whyCorrect: 'Router (bộ định tuyến) là thiết bị hoạt động ở tầng mạng, có chức năng tìm đường đi tốt nhất và chuyển tiếp (định tuyến) các gói tin giữa các mạng máy tính khác nhau (ví dụ từ mạng LAN gia đình tới Internet).',
+      whyOthersWrong: {
+        B: 'Sai vì Hub chỉ khuếch đại và phát tán tín hiệu tới mọi cổng trong cùng 1 mạng cục bộ.',
+        C: 'Sai vì Switch thông thường chỉ chuyển tiếp khung dữ liệu trong nội bộ mạng LAN dựa trên địa chỉ MAC.',
+        D: 'Sai vì Card mạng là thiết bị gắn trên máy tính để kết nối vật lý với dây cáp mạng hoặc sóng wifi.'
+      },
+      keyTakeaway: 'Router dùng để kết nối và định tuyến dữ liệu giữa các mạng khác nhau (mạng nội bộ với Internet).',
+      exampleSnippet: 'Gia đình bạn kết nối Internet thông qua Router Wi-Fi của nhà mạng cung cấp dịch vụ viễn thông.',
+      textbookReference: 'SGK Tin học 10 - Bài 6: Mạng máy tính trong cuộc sống hiện đại',
+      isVerifiedSGK: true
+    }
+  }
+];

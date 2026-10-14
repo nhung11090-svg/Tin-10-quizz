@@ -1,0 +1,7 @@
+{
+  "name": "TIN 10 – SMART QUIZ",
+  "description": "Hệ thống ôn tập Tin học 10 thông minh với AI giải thích kiến thức SGK, quản lý ngân hàng trắc nghiệm và phân tích kết quả học tập.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
